@@ -3,6 +3,7 @@
 # define GNL_H
 
 # include "libft/libft.h"
+# include "fcntl.h"
 # define BUFF_SIZE 2048
 
 
