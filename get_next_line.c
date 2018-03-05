@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/05 01:14:57 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/05 09:09:40 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/05 09:54:49 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	get_next_line(const int fd, char **line)
 		c_buff = ft_strnew(0);
 	if (!ft_strchr(c_buff, '\n'))
 	{
-		while ((ret = read(fd, buff, BUFF_SIZE)) && !ft_strchr(c_buff, '\n'))
+		while ((ret = read(fd, buff, BUFF_SIZE)) > 0)
 		{
 			buff[ret] = '\0';
 			c_buff = ft_strjoin(c_buff, buff);
@@ -52,7 +52,6 @@ int	get_next_line(const int fd, char **line)
 		{
 			*line = ft_strsub(c_buff, 0, i);
 			c_buff = NULL;
-			return (0);
 		}
 		return (1);
 	}
