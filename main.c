@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/02 17:05:27 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/05 04:27:17 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/05 05:23:58 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int	main(void)
 	fd = open("test.txt", O_RDONLY);
 	while ((n = get_next_line(fd, &s)) > 0)
 		ft_putstr(s);
+	ft_putstr(s);
 	close(fd);
 	return (1);
 }

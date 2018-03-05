@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/05 01:14:57 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/05 04:50:36 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/05 05:25:18 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ int	get_next_line(const int fd, char **line)
 {
     static  char    *c_buff = NULL;
     int             ret;
-    // char            *s;
     char            buff[BUFF_SIZE];
     int             i;
 
@@ -45,10 +44,7 @@ int	get_next_line(const int fd, char **line)
     if (ret == -1)
         return (-1);
     else if (ret == 0 && !c_buff[0])
-    {
-        *line = c_buff;
         return (0);
-    }
     else
     {
         i = 0;
@@ -61,8 +57,8 @@ int	get_next_line(const int fd, char **line)
         }
 		else if (c_buff[i] == '\0')
 		{
-			*line = ft_strsub(c_buff, 0, i - 1);
-			c_buff = NULL;
+			*line = ft_strsub(c_buff, 0, i);
+			
 			return (0);
 		}
 		return (1);
